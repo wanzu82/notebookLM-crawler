@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NotebookLM Prompt Library — Infographic & Slide Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#0f0f0f;--ink2:#444;--ink3:#888;
+  --bg:#fafaf7;--surface:#fff;--surface2:#f4f3ee;
+  --accent:#1a6b4a;--accent-light:#e6f5ee;
+  --blue:#1a4a8a;--blue-light:#e8edf8;
+  --pink:#8a2252;--pink-light:#fde8f0;
+  --border:#e0dfd8;--radius:8px;
+}
+body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);min-height:100vh;}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);background:var(--surface);position:sticky;top:0;z-index:100;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-icon{width:32px;height:32px;background:var(--ink);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;}
+.logo-text{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;}
+.logo-sub{font-size:11px;color:var(--ink3);margin-left:4px;}
+.badge{font-size:11px;padding:3px 10px;border-radius:20px;background:var(--accent-light);color:var(--accent);font-weight:600;}
+.hero{padding:36px 24px 20px;max-width:820px;margin:0 auto;}
+.hero h1{font-family:'Space Mono',monospace;font-size:19px;font-weight:700;line-height:1.4;margin-bottom:8px;}
+.hero p{font-size:13px;color:var(--ink2);line-height:1.6;max-width:600px;}
+.how{max-width:820px;margin:0 auto;padding:0 24px 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.how-step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px;}
+.how-num{font-family:'Space Mono',monospace;font-size:10px;color:var(--ink3);margin-bottom:3px;}
+.how-text{font-size:11px;color:var(--ink2);line-height:1.5;}
+.filter-zone{max-width:820px;margin:0 auto;padding:0 24px 20px;}
+.filter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px;}
+.fgroup{display:flex;flex-direction:column;gap:5px;}
+.flabel{font-size:10px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:0.6px;}
+.fsel{font-size:13px;padding:9px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--ink);cursor:pointer;outline:none;font-family:'DM Sans',sans-serif;width:100%;}
+.fsel:focus{border-color:#aaa;}
+.type-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;}
+.tab{padding:6px 14px;border-radius:20px;font-size:12px;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--ink2);transition:all 0.1s;font-weight:500;}
+.tab.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+.tab:hover:not(.active){background:var(--surface2);}
+.results-meta{max-width:820px;margin:0 auto;padding:0 24px 12px;display:flex;align-items:center;justify-content:space-between;}
+.results-count{font-size:12px;color:var(--ink3);font-family:'Space Mono',monospace;}
+.sort-sel{font-size:12px;border:1px solid var(--border);border-radius:5px;padding:4px 8px;background:var(--surface);cursor:pointer;color:var(--ink);}
+.results-area{max-width:820px;margin:0 auto;padding:0 24px 48px;}
+.prompt-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin-bottom:10px;transition:border-color 0.15s;}
+.prompt-card:hover{border-color:#bbb;}
+.prompt-card.starred{border-left:3px solid var(--accent);}
+.card-tags{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+.tag{font-size:10px;padding:2px 8px;border-radius:4px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;}
+.tag-slide{background:var(--blue-light);color:var(--blue);}
+.tag-info{background:var(--pink-light);color:var(--pink);}
+.tag-both{background:var(--accent-light);color:var(--accent);}
+.tag-style{background:var(--surface2);color:var(--ink2);font-weight:500;text-transform:none;letter-spacing:0;}
+.tag-source{background:#f0ede4;color:#666;font-weight:500;text-transform:none;letter-spacing:0;}
+.card-title{font-size:14px;font-weight:600;margin-bottom:8px;line-height:1.4;}
+.where-badge{font-size:11px;color:var(--accent);background:var(--accent-light);padding:5px 10px;border-radius:4px;display:inline-flex;align-items:center;gap:5px;margin-bottom:10px;}
+.prompt-box{background:var(--surface2);border-radius:6px;padding:12px 14px;margin-bottom:10px;}
+.prompt-box-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--ink3);margin-bottom:6px;}
+.prompt-text{font-size:12px;color:var(--ink2);line-height:1.7;font-family:'Space Mono',monospace;}
+.card-actions{display:flex;gap:8px;align-items:center;}
+.btn-sm{font-size:11px;padding:5px 12px;border-radius:5px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--ink2);font-family:'DM Sans',sans-serif;transition:all 0.1s;display:flex;align-items:center;gap:4px;}
+.btn-sm:hover{background:var(--surface2);}
+.btn-copy{background:var(--ink);color:#fff;border-color:var(--ink);}
+.btn-copy:hover{background:#2d2d2d;}
+.score-bar{display:flex;align-items:center;gap:5px;margin-left:auto;}
+.score-lbl{font-size:10px;color:var(--ink3);}
+.dots{display:flex;gap:2px;}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--border);}
+.dot.on{background:var(--accent);}
+.empty{text-align:center;padding:48px 24px;color:var(--ink3);}
+.empty h3{font-size:14px;color:var(--ink2);margin-bottom:6px;}
+.empty p{font-size:13px;line-height:1.6;}
+.toast{position:fixed;bottom:24px;right:24px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:var(--radius);font-size:12px;opacity:0;transition:opacity 0.2s;pointer-events:none;z-index:999;max-width:320px;}
+.toast.show{opacity:1;}
+footer{text-align:center;padding:20px;font-size:11px;color:var(--ink3);border-top:1px solid var(--border);}
+@media(max-width:600px){.filter-grid{grid-template-columns:1fr;}.how{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">
+    <div class="logo-icon">NLM</div>
+    <div>
+      <span class="logo-text">PROMPT LIBRARY</span>
+      <span class="logo-sub">for NotebookLM Studio</span>
+    </div>
+  </div>
+  <span class="badge" id="count-badge">34 prompts</span>
+</div>
+
+<div class="hero">
+  <h1>Copy. Paste into description box. Get beautiful outputs.</h1>
+  <p>Curated design prompts for NotebookLM Studio's <strong>Infographic</strong> and <strong>Slide Deck</strong> description boxes. Every prompt is RAG-aware — written specifically for NotebookLM's source-grounded generation so it only uses YOUR uploaded documents.</p>
+</div>
+
+<div class="how">
+  <div class="how-step"><div class="how-num">STEP 1</div><div class="how-text">Upload your source document into NotebookLM</div></div>
+  <div class="how-step"><div class="how-num">STEP 2</div><div class="how-text">Filter by format, style and source type below</div></div>
+  <div class="how-step"><div class="how-num">STEP 3</div><div class="how-text">Copy the prompt that fits your needs</div></div>
+  <div class="how-step"><div class="how-num">STEP 4</div><div class="how-text">Paste into the Infographic or Slide Deck description box in NotebookLM Studio</div></div>
+</div>
+
+<div class="filter-zone">
+  <div class="filter-grid">
+    <div class="fgroup">
+      <label class="flabel">Design style</label>
+      <select class="fsel" id="f-style" onchange="applyFilters()">
+        <option value="all">All styles</option>
+        <option value="minimal">Minimal and clean</option>
+        <option value="corporate">Corporate / professional</option>
+        <option value="academic">Academic / research</option>
+        <option value="data">Data-heavy / statistics</option>
+        <option value="visual">Visual / icon-based</option>
+        <option value="timeline">Timeline / process flow</option>
+        <option value="comparison">Comparison / pros-cons</option>
+      </select>
+    </div>
+    <div class="fgroup">
+      <label class="flabel">Your source type</label>
+      <select class="fsel" id="f-source" onchange="applyFilters()">
+        <option value="all">All source types</option>
+        <option value="research">Research paper / journal</option>
+        <option value="meeting">Meeting notes / minutes</option>
+        <option value="report">Report / annual report</option>
+        <option value="news">News article / blog</option>
+        <option value="lecture">Lecture notes / textbook</option>
+        <option value="any">Any document</option>
+      </select>
+    </div>
+    <div class="fgroup">
+      <label class="flabel">Output format</label>
+      <div class="type-tabs">
+        <span class="tab active" onclick="setType(this,'all')">All</span>
+        <span class="tab" onclick="setType(this,'slide')">🖼 Slide Deck</span>
+        <span class="tab" onclick="setType(this,'infographic')">📊 Infographic</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="results-meta">
+  <span class="results-count" id="results-count">Showing 34 prompts</span>
+  <select class="sort-sel" onchange="sortBy(this.value)">
+    <option value="default">Sort: recommended</option>
+    <option value="style">Sort: by style</option>
+    <option value="type">Sort: by format</option>
+  </select>
+</div>
+
+<div class="results-area" id="results-list"></div>
+<div class="empty" id="empty-state" style="display:none">
+  <h3>No prompts match this combination</h3>
+  <p>Try changing the style or source type filters above.</p>
+</div>
+
+<footer>NotebookLM Prompt Library &nbsp;·&nbsp; For the Infographic and Slide Deck description boxes in NotebookLM Studio &nbsp;·&nbsp; Free to use</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+const PROMPTS = [
+  {id:"i01",type:"infographic",style:"minimal",source:"any",title:"Clean 5-section summary infographic",score:10,
+  prompt:"Create a clean minimal infographic with 5 sections based strictly on my uploaded sources. Section 1: one bold headline finding as a large stat or key statement. Section 2: three supporting points as short label and one-line explanation pairs. Section 3: one central process or relationship shown as a simple left-to-right flow. Section 4: one important contrast or comparison from the source. Section 5: one closing takeaway or conclusion pulled directly from the document. Use simple icons as visual anchors. Do not include any information not found in my sources."},
+  {id:"i02",type:"infographic",style:"data",source:"research",title:"Research findings data infographic",score:10,
+  prompt:"Design a data-focused infographic based on my research source. Lead with the most significant numerical finding as a large centred statistic. Below it show three to five key data points as bold numbers with short descriptive labels. Include one chart or graph description showing the main trend. Add a methodology note in small text at the bottom. End with the main conclusion stated in one sentence. All figures and facts must come directly from the uploaded source only."},
+  {id:"i03",type:"infographic",style:"timeline",source:"any",title:"Process or timeline flow infographic",score:9,
+  prompt:"Create a top-to-bottom timeline or step-by-step process infographic using only content from my uploaded sources. Show between four and seven stages or steps. Each step should have a short title of no more than five words and one to two sentences of explanation drawn directly from the source. Use numbered circles or step markers. If dates or phases are mentioned in the source use them as labels. End with the outcome or final state described in the source."},
+  {id:"i04",type:"infographic",style:"comparison",source:"any",title:"Two-column comparison infographic",score:9,
+  prompt:"Build a side by side comparison infographic based entirely on my uploaded sources. Left column and right column should each represent a concept, option, approach, or time period found in the source. Use five to seven comparison rows covering the most important dimensions mentioned in the document. Each cell should contain a short phrase or number only. Add a summary row at the bottom stating which option or approach the source favours if applicable. Do not invent any comparison points not present in the source."},
+  {id:"i05",type:"infographic",style:"visual",source:"any",title:"Icon-based visual summary infographic",score:9,
+  prompt:"Create a visually engaging icon-based infographic summarising my uploaded source. Use six to eight key concepts from the document, each represented as an icon with a short label of two to four words and one supporting sentence. Arrange them in a grid or circular layout. Highlight the single most important concept with a larger icon or bold treatment. Every concept must be grounded in the uploaded source material. Do not add any information not present in the source."},
+  {id:"i06",type:"infographic",style:"academic",source:"research",title:"Academic research poster infographic",score:10,
+  prompt:"Design an academic research poster style infographic from my uploaded research source. Include the following sections in order: Background with one to two sentences of context, Research Question or Objective stated clearly, Methods summarised in three to four brief points, Key Findings presented as numbered results with supporting data, Discussion with one paragraph of interpretation, and Conclusion with the main implication. Use formal clean typography. All content must be extracted directly from the source document."},
+  {id:"i07",type:"infographic",style:"corporate",source:"report",title:"Executive summary infographic",score:9,
+  prompt:"Create a corporate executive summary infographic from my uploaded report. Start with a bold title and one sentence mission or purpose statement from the document. Show three to five key performance indicators or headline metrics as large numbers with labels. Include one trend or progress visual described in words. Add a priorities or recommendations section with three bullet points from the source. End with a forward looking statement or target pulled from the document. All content must come from the uploaded report only."},
+  {id:"i08",type:"infographic",style:"data",source:"report",title:"Annual report highlights infographic",score:9,
+  prompt:"Design a data-rich infographic highlighting the most important figures from my uploaded annual report. Feature five to seven key metrics as large bold numbers each with a short label and a percentage change or trend indicator if available in the source. Group them by theme such as financial, operational, and impact. Include one visual showing year on year comparison if data is present. Add a short quote or statement from the report leadership section if available. Use only figures and facts from the uploaded document."},
+  {id:"i09",type:"infographic",style:"minimal",source:"news",title:"News story explainer infographic",score:8,
+  prompt:"Create a minimal explainer infographic based on my uploaded news article or blog post. Start with the headline finding or event in one bold sentence. Then answer the following questions using only information from the article: What happened, Who is involved, Why it matters, and What happens next. Present each answer as a short labelled section with two to three sentences maximum. End with one key quote or statistic from the article. Keep the design clean and text minimal."},
+  {id:"i10",type:"infographic",style:"visual",source:"lecture",title:"Concept map learning summary infographic",score:9,
+  prompt:"Build a concept map style infographic from my uploaded lecture notes or textbook content. Identify the central concept and place it prominently. Show four to six related sub-concepts branching from the centre, each with a two to three sentence explanation from the source. Highlight definitions, formulas, or key terms found in the material. Add examples where the source provides them. Use a clear hierarchy of visual importance. Do not add any explanations or examples not present in the uploaded material."},
+  {id:"i11",type:"infographic",style:"timeline",source:"research",title:"Research methodology flow infographic",score:9,
+  prompt:"Create a methodology flow infographic based on my uploaded research document. Show the research process as a sequential flow from start to finish. Include the following stages if present in the source: problem statement, research design, data collection method, analysis approach, findings, and conclusion. Each stage should have a short title and one to two sentences of description drawn directly from the document. Use directional arrows to show flow. Add sample size, date range, or scope information if mentioned in the source."},
+  {id:"i12",type:"infographic",style:"comparison",source:"research",title:"Cause and effect infographic",score:8,
+  prompt:"Design a cause and effect or before and after infographic using only content from my uploaded source. On the left side show the initial condition, problem, or cause as described in the document. On the right side show the outcome, effect, or result. Use three to five paired points connecting left to right. Add quantitative evidence from the source to support each pair where available. Include a central summary statement in one sentence. All content must be drawn strictly from the uploaded source."},
+  {id:"s01",type:"slide",style:"minimal",source:"any",title:"Clean 6-slide minimal presentation",score:10,
+  prompt:"Create a clean minimal slide deck with 6 slides based strictly on my uploaded sources. Slide 1: title slide with the main topic and one sentence summary from the source. Slide 2: context or background with three brief points. Slide 3: key finding or main argument with supporting evidence from the document. Slide 4: data, examples, or case details from the source. Slide 5: implications or recommendations grounded in the source. Slide 6: conclusion and one memorable closing statement pulled from the document. Each slide should have a short header and no more than four bullet points. Use only content from the uploaded source."},
+  {id:"s02",type:"slide",style:"corporate",source:"report",title:"Corporate board-ready presentation",score:10,
+  prompt:"Design a professional board-ready slide deck from my uploaded report. Include the following slides: Executive Summary with three headline metrics, Context and Background in two to three points, Key Performance Data with figures from the report, Analysis of main findings in four to five points, Strategic Recommendations with three to five action points from the document, Risks or Challenges mentioned in the source, and Next Steps or Timeline if present. Keep each slide to one clear message with supporting data. All content must come directly from the uploaded report."},
+  {id:"s03",type:"slide",style:"academic",source:"research",title:"Academic research presentation deck",score:10,
+  prompt:"Create an academic research presentation slide deck from my uploaded research paper or journal article. Include these slides in order: Title and authors, Introduction and research gap, Research question and objectives, Literature context in two to three points, Methodology overview, Key results with data, Discussion and interpretation, Limitations as stated in the source, Conclusion and contribution, and References or sources cited in the document. Each slide should be concise and evidence-based using only content from the uploaded source."},
+  {id:"s04",type:"slide",style:"data",source:"research",title:"Data-driven findings presentation",score:9,
+  prompt:"Build a data-driven slide deck from my uploaded source focusing on quantitative findings. Start with a hook slide showing the single most striking statistic from the document. Follow with a context slide explaining what was measured and how. Dedicate one slide each to the three to five most important data findings, each with the key number prominently displayed and two to three sentences of explanation from the source. Add a trends slide if time series data is present. Close with a so-what slide summarising the practical meaning of the data. Use only figures from the uploaded document."},
+  {id:"s05",type:"slide",style:"visual",source:"any",title:"Visual storytelling presentation",score:9,
+  prompt:"Design a visual storytelling slide deck from my uploaded source. Structure it as a narrative with a clear beginning, middle, and end. Beginning: set the scene with the problem or context from the source in two slides. Middle: show the journey, process, or evidence in three to four slides using examples and data from the document. End: reveal the outcome, conclusion, or call to action in two slides. Each slide should lead with a strong one-sentence statement. All narrative content must come from the uploaded source only."},
+  {id:"s06",type:"slide",style:"timeline",source:"any",title:"Timeline or project roadmap deck",score:9,
+  prompt:"Create a timeline or roadmap slide deck from my uploaded source. Slide 1: overview of the full timeline or project scope. Slides 2 through 5 or more: one slide per phase, stage, or time period found in the document, each with a short title, date or phase label, key activities or events from the source, and outcomes or deliverables. Final slide: current status or future outlook as described in the document. If milestones or deadlines are mentioned in the source include them. Do not add phases or dates not present in the uploaded document."},
+  {id:"s07",type:"slide",style:"comparison",source:"any",title:"Options comparison or decision deck",score:9,
+  prompt:"Design a comparison or decision-making slide deck using only content from my uploaded source. Slide 1: state the decision or comparison being made. Slide 2: criteria for comparison as listed or implied in the source. Slides 3 through 5: one slide per option or approach described in the document, each covering strengths, weaknesses, and key data. Slide 6: side by side summary table with all options. Slide 7: recommendation or conclusion from the source. Use only language and evidence from the uploaded document."},
+  {id:"s08",type:"slide",style:"corporate",source:"meeting",title:"Meeting minutes to action slide deck",score:10,
+  prompt:"Convert my uploaded meeting notes or minutes into a structured action-oriented slide deck. Slide 1: meeting title, date, and attendees from the document. Slide 2: agenda items or topics discussed listed as brief points. Slide 3: key decisions made during the meeting as a numbered list. Slide 4: action items as a table with task, owner, and deadline columns using information from the notes. Slide 5: issues or risks raised during the meeting. Slide 6: next steps and follow up meeting date if mentioned. Use only information present in the uploaded meeting notes."},
+  {id:"s09",type:"slide",style:"minimal",source:"news",title:"News briefing or situation report deck",score:9,
+  prompt:"Create a concise news briefing slide deck from my uploaded article or document. Slide 1: headline and one sentence summary of the main event or finding. Slide 2: background context in three points from the source. Slide 3: what happened or what was found, with key facts and figures from the article. Slide 4: who is affected or involved as described in the source. Slide 5: implications or what this means as stated or implied in the document. Slide 6: what happens next or open questions from the source. Keep each slide to five lines or fewer."},
+  {id:"s10",type:"slide",style:"academic",source:"lecture",title:"Lecture or teaching slide deck",score:9,
+  prompt:"Design a teaching slide deck from my uploaded lecture notes or textbook content. Slide 1: topic title and learning objectives if present in the source. Slides 2 through 6: one key concept per slide, each with a clear definition from the source, two to three supporting points or examples from the material, and one question for reflection. Slide 7: summary of all key concepts as a visual list. Slide 8: further reading or references mentioned in the source. Do not add examples or explanations not in the source."},
+  {id:"s11",type:"slide",style:"data",source:"report",title:"KPI and metrics dashboard deck",score:9,
+  prompt:"Build a KPI dashboard style slide deck from my uploaded report. Slide 1: title and reporting period from the document. Slide 2: headline scorecard showing three to five top metrics as large numbers with status indicators if mentioned in the source. Slide 3: performance by category or department based on report data. Slide 4: trends over time if the report contains historical comparison data. Slide 5: areas of concern or underperformance as identified in the document. Slide 6: priorities or recommendations from the report. All metrics must be taken directly from the uploaded document."},
+  {id:"s12",type:"slide",style:"visual",source:"research",title:"Research impact and policy brief deck",score:9,
+  prompt:"Create a research impact slide deck from my uploaded source aimed at a non-specialist audience. Slide 1: the problem this research addresses in plain language from the source. Slide 2: what was studied and how, simplified from the methodology section. Slide 3: the three most important findings stated in plain language with supporting data. Slide 4: what these findings mean for practice or policy as stated or implied in the source. Slide 5: who should act and how based on recommendations in the document. Slide 6: one memorable statistic or quote from the source as a closing statement."},
+  {id:"b01",type:"both",style:"minimal",source:"any",title:"Executive one-pager or summary",score:9,
+  prompt:"Create a concise executive summary using only content from my uploaded source. If slide deck: use five slides maximum with one key message per slide, a headline stat, three supporting points, and a clear recommendation. If infographic: use a single page divided into four quadrants covering context, key finding, evidence, and recommendation. In both formats keep text minimal, lead with numbers and facts from the source, and end with the single most important takeaway from the document. Do not include information not present in the uploaded source."},
+  {id:"b02",type:"both",style:"corporate",source:"any",title:"Stakeholder communication piece",score:9,
+  prompt:"Design a stakeholder communication based on my uploaded source. If slide deck: include a context slide, three to four findings or update slides, an implications slide, and a next steps slide with owners and dates if available. If infographic: organise into a header with the main message, three to four key points with supporting data, and a footer with the call to action or next step. In both formats use formal professional language and present only facts from the uploaded source."},
+  {id:"b03",type:"both",style:"timeline",source:"any",title:"Progress update or milestone tracker",score:8,
+  prompt:"Create a progress or milestone update from my uploaded source. If slide deck: one slide per phase or milestone showing planned versus actual where data exists, key achievements from the source, and outstanding items. If infographic: show a horizontal or vertical timeline with milestones marked, completed items visually distinguished from pending ones, and key metrics or outcomes at each stage. In both formats use only dates, phases, and outcomes mentioned in the uploaded document."},
+  {id:"b04",type:"both",style:"data",source:"any",title:"Data story with insight and so-what",score:9,
+  prompt:"Build a data story from my uploaded source that takes the audience from raw numbers to clear insight. Start with the most important number or finding from the document. Explain what it means in context using supporting data from the source. Show the trend or comparison that makes this number significant. State the implication or action that follows from this data as suggested in the source. If slide deck: dedicate one slide to each of these four elements. If infographic: use a top to bottom flow with these four sections clearly labelled. Use only data present in the uploaded source."},
+  {id:"b05",type:"both",style:"visual",source:"any",title:"Problem and solution visual layout",score:8,
+  prompt:"Create a problem and solution visual from my uploaded source. Clearly present the problem or challenge as described in the document with supporting evidence. Show the root causes or contributing factors mentioned in the source. Present the proposed solution or approach from the document. Show expected outcomes or results if mentioned. If slide deck: two slides for problem and causes, two slides for solution and outcomes, one closing slide. If infographic: left half for problem and right half for solution with a visual bridge in the centre. Use only content from the uploaded source."},
+  {id:"b06",type:"both",style:"academic",source:"research",title:"Literature review visual summary",score:9,
+  prompt:"Summarise the key themes from my uploaded literature review or research source as a visual output. Identify three to five major themes or arguments present in the document. For each theme provide a short label, two to three key points or evidence from the source, and any consensus or disagreement noted. If slide deck: one slide per theme plus an opening overview slide and a closing synthesis slide. If infographic: a circular or clustered layout with the central thesis in the middle and themes radiating outward. All content must be extracted directly from the uploaded source."},
+  {id:"b07",type:"both",style:"comparison",source:"any",title:"Two-option comparison layout",score:8,
+  prompt:"Create a structured comparison from my uploaded source contrasting two options, approaches, time periods, or groups found in the document. Identify five to seven dimensions of comparison present or implied in the source. Present each dimension with a short label and the corresponding values or descriptions for each side. Highlight where the source indicates one side is stronger or preferred. If slide deck: overview slide, one slide per dimension, and a summary recommendation slide. If infographic: a clean two-column table layout with a summary row at the bottom. Use only information from the uploaded document."},
+  {id:"b08",type:"both",style:"minimal",source:"lecture",title:"Study guide or revision summary",score:9,
+  prompt:"Create a study guide or revision summary from my uploaded lecture notes or textbook content. Cover the five to seven most important concepts from the material. For each concept include a clear definition from the source, the key principle or rule, one example if provided in the material, and one important note if mentioned. If slide deck: one slide per concept with a clean layout and a final summary slide. If infographic: a grid layout with each concept in its own box using consistent structure. Use only content from the uploaded material."}
+];
+
+let activeType='all', starred=new Set(), currentPrompts=[...PROMPTS];
+
+function setType(el,val){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  activeType=val;
+  applyFilters();
+}
+
+function applyFilters(){
+  const style=document.getElementById('f-style').value;
+  const source=document.getElementById('f-source').value;
+  currentPrompts=PROMPTS.filter(p=>{
+    const tm=activeType==='all'||p.type===activeType||p.type==='both';
+    const sm=style==='all'||p.style===style;
+    const om=source==='all'||p.source===source||p.source==='any';
+    return tm&&sm&&om;
+  });
+  renderAll();
+}
+
+function sortBy(mode){
+  if(mode==='style') currentPrompts.sort((a,b)=>a.style.localeCompare(b.style));
+  else if(mode==='type') currentPrompts.sort((a,b)=>a.type.localeCompare(b.type));
+  else currentPrompts.sort((a,b)=>b.score-a.score);
+  renderAll();
+}
+
+function renderAll(){
+  const list=document.getElementById('results-list');
+  const empty=document.getElementById('empty-state');
+  const count=document.getElementById('results-count');
+  const badge=document.getElementById('count-badge');
+  if(!currentPrompts.length){list.innerHTML='';empty.style.display='block';count.textContent='0 prompts';return;}
+  empty.style.display='none';
+  const n=currentPrompts.length;
+  count.textContent='Showing '+n+' prompt'+(n!==1?'s':'');
+  badge.textContent=n+' prompts';
+  const sourceMap={any:'Any source',research:'Research paper',meeting:'Meeting notes',report:'Report',news:'News / blog',lecture:'Lecture notes'};
+  list.innerHTML=currentPrompts.map(p=>{
+    const tc=p.type==='slide'?'tag-slide':p.type==='infographic'?'tag-info':'tag-both';
+    const tl=p.type==='slide'?'🖼 Slide Deck':p.type==='infographic'?'📊 Infographic':'✦ Both';
+    const where=p.type==='slide'?'NotebookLM Studio → Slide Deck description box':p.type==='infographic'?'NotebookLM Studio → Infographic description box':'NotebookLM Studio → Infographic or Slide Deck description box';
+    const dots=Array.from({length:10},(_,i)=>`<div class="dot${i<p.score?' on':''}"></div>`).join('');
+    const isStar=starred.has(p.id);
+    const styleLabel=p.style.charAt(0).toUpperCase()+p.style.slice(1);
+    return `<div class="prompt-card${isStar?' starred':''}">
+      <div class="card-tags">
+        <span class="tag ${tc}">${tl}</span>
+        <span class="tag tag-style">${styleLabel}</span>
+        <span class="tag tag-source">${sourceMap[p.source]||p.source}</span>
+      </div>
+      <div class="card-title">${p.title}</div>
+      <div class="where-badge"><i class="ti ti-arrow-right" style="font-size:12px" aria-hidden="true"></i> Paste in: ${where}</div>
+      <div class="prompt-box">
+        <div class="prompt-box-label">Prompt — copy and paste into description box</div>
+        <div class="prompt-text">${p.prompt}</div>
+      </div>
+      <div class="card-actions">
+        <button class="btn-sm btn-copy" onclick="copyPrompt('${p.id}')"><i class="ti ti-copy"></i> Copy prompt</button>
+        <button class="btn-sm" onclick="toggleStar('${p.id}')">${isStar?'⭐ Saved':'☆ Save'}</button>
+        <div class="score-bar">
+          <span class="score-lbl">quality</span>
+          <div class="dots">${dots}</div>
+          <span style="font-size:10px;font-family:'Space Mono',monospace;color:var(--ink2)">${p.score}/10</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function copyPrompt(id){
+  const p=PROMPTS.find(x=>x.id===id);
+  if(!p) return;
+  navigator.clipboard.writeText(p.prompt)
+    .then(()=>showToast('Copied! Paste into the description box in NotebookLM Studio'))
+    .catch(()=>showToast('Copy failed — please select the text and copy manually'));
+}
+
+function toggleStar(id){
+  starred.has(id)?starred.delete(id):starred.add(id);
+  renderAll();
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+renderAll();
+</script>
+</body>
+</html>
